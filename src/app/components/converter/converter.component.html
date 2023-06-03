@@ -1,0 +1,22 @@
+<div class="converter-wrap">
+  <div class="converter" >
+    <label class="converter-label">From:</label>
+    <select class="converter-select" [formControl] = "fromSelectFormControl" (change)="loadRates(true)" (change)="loadRates(false)" (input)="changeFromToDirection(false)" >
+      <option   *ngFor="let item of currencyArr" [ngValue]="item">{{item}}</option>
+    </select>
+    <input class="converter-input" (input)="changeFromToDirection(true)"  type="number" placeholder={{from}}  [formControl]= "fromInputControl" >
+
+<!--    <button class='swap-button' type='button'-->
+<!--            (click)='swapHandler()' event>-->
+<!--      <span class='swap-icon'>compare_arrows</span>-->
+<!--    </button>-->
+
+    <label class="converter-label">To:</label>
+    <input class="converter-input"  (input)="changeFromToDirection(false)"  type="number" placeholder={{to}}   [formControl]= "toInputControl">
+    <select class="converter-select"  [formControl] = "toSelectFormControl" (change)="loadRates(false)" (change)="loadRates(true)" >
+      <option *ngFor="let item of currencyArr" [ngValue]="item">{{item}}</option>
+    </select>
+  </div>
+</div>
+
+
